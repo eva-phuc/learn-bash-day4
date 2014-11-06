@@ -2,9 +2,9 @@
 #  command "cp -a /usr/share/zoneinfo/#{node[:timezone][:tz]} /etc/localtime"
 #end
 
-#execute "Update language" do
-#	sed -i 's/Hello/en_US/g' /opt/docs/welcome.txt
-#end
+execute "Update language" do
+	command "sed -i 's/ja_JP/en_US/g' /etc/sysconfig/i18n"
+end
 
 execute "Flush all iptables rules" do
   command "/sbin/iptables -F"
